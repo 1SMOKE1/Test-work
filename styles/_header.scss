@@ -1,0 +1,238 @@
+.header {
+  padding-top: 60px;
+  @media(max-width: 760px){
+    padding-top: 25px;
+  }
+  .container {
+    @media (max-width: 1024px) {
+      padding: 0 80px;
+    }
+    @media (max-width: 460px) {
+      padding: 0 15px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 0.1fr 0.35fr 0.3fr 0.2fr 0.25fr 0.11fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas:
+        "logo p3   p1   p2   ord  lang"
+        "logo navi navi navi navi navi";
+      @media (max-width: 1750px) {
+        grid-template-columns: 0.1fr 0.5fr repeat(2, 0.3fr) 0.4fr 0.05fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas:
+          "logo p1   p2   p3   ord  lang"
+          "logo p1   p2   p3   ord  lang"
+          "navi navi navi navi navi navi";
+      }
+      @media (max-width: 1580px) {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-rows: 0.3fr 0.1fr 1fr 1fr;
+        grid-template-areas:
+          "p1    p1   p1    p1   lang lang"
+          "logo  p2   p2    p3   ord   ord"
+          "logo  p2   p2    p3   ord   ord"
+          "navi  navi navi  navi navi navi";
+      }
+      @media (max-width: 1250px) {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-rows: 0.3fr 0.1fr 1fr 1fr;
+        grid-template-areas:
+          "p1     p1    p1   lang lang"
+          "logo   p2    p3   ord   ord"
+          "logo   p2    p3   ord   ord"
+          "navi   navi  navi navi navi";
+      }
+      @media (max-width: 1000px) {
+        grid-template-columns: repeat(3, minmax(200px, 1fr));
+        grid-template-rows: 1fr;
+        grid-template-areas:
+        "logo phone-mobile menu-mobile";
+      }
+      @media (max-width: 760px) {
+        grid-template-columns: minmax(60px, 1fr) minmax(40px, 1fr) minmax(60px, 1fr);
+        grid-template-rows: 1fr;
+        grid-template-areas:
+        "logo phone-mobile menu-mobile";
+      }
+      //
+      .logo {
+        grid-area: logo;
+        z-index: 100;
+        @media(max-width: 760px){
+          display: flex;
+          align-items: center;
+        }
+        .logo-img {
+          @media (max-width: 760px) {
+            width: 65px;
+            heigth: 25px;
+          }
+        }
+      }
+      .phone-wrap {
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        .city {
+          margin-right: 5px;
+        }
+      }
+      .phone-1 {
+        grid-area: p1;
+        @media (max-width: 1000px) {
+          display: none;
+        }
+      }
+      .phone-2 {
+        grid-area: p2;
+        @media (max-width: 1000px) {
+          display: none;
+        }
+      }
+      .phone-3 {
+        grid-area: p3;
+        @media (max-width: 1000px) {
+          display: none;
+        }
+      }
+      .phone-mobile{
+        grid-area: phone-mobile;
+        display: none;
+        @media(max-width: 1000px){
+          display: flex;
+          justify-content: center;
+          z-index: 100;
+        }
+        .phone-mobile-img{
+          width: 25%;
+          height: 100%;
+          cursor: pointer;
+          @media (max-width: 430px){
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
+      .order {
+        z-index: 100;
+        grid-area: ord;
+        display: flex;
+        align-items: center;
+        @media (max-width: 1000px) {
+          display: none;
+        }
+        &-icon {
+          margin-right: 25px;
+          margin-left: 35px;
+        }
+      }
+      .lang {
+        grid-area: lang;
+        display: flex;
+        justify-content: space-around;
+        align-self: center;
+        @media (max-width: 1580px) {
+          justify-content: flex-start;
+          margin-left: 30px;
+        }
+        @media (max-width: 1000px) {
+          display: none;
+        }
+        .btn-lang {
+          text-align: center;
+          border: none;
+          background-color: transparent;
+          width: 40px;
+          height: 27px;
+          transition: all 0.3s ease;
+          z-index: 100;
+          &:first-child {
+            margin-right: 15px;
+          }
+          &:hover {
+            color: $c1;
+            border: 0.5px solid $c1;
+          }
+        }
+        .active {
+          border: 0.5px solid $c3;
+        }
+      }
+      .nav {
+        grid-area: navi;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 10px;
+        @media(max-width: 1000px){
+          display: none;
+        }
+        .menu {
+          display: flex;
+          flex-wrap: wrap;
+          @media (max-width: 1550px) {
+            justify-content: center;
+          }
+          .item {
+            margin-right: 16px;
+            &:last-child {
+              margin-right: 0;
+            }
+            @media (max-width: 1550px) {
+              padding: 10px;
+            }
+
+            .link {
+              z-index: 100;
+              transition: all 0.3s ease;
+              position: relative;
+              padding: 0 8px;
+              cursor: pointer;
+              &:hover {
+                color: $c3;
+                &::before {
+                  display: block;
+                  content: "";
+                  position: absolute;
+                  border: 1px solid red;
+                  border-right-color: transparent;
+                  width: 8px;
+                  height: 24px;
+                  top: 0;
+                  left: 0;
+                  z-index: 2;
+                }
+                &::after {
+                  display: block;
+                  content: "";
+                  position: absolute;
+                  border: 1px solid red;
+                  border-left-color: transparent;
+                  width: 8px;
+                  height: 24px;
+                  top: 0;
+                  right: 0;
+                  z-index: 2;
+                }
+              }
+            }
+          }
+        }
+      }
+      .menu-mobile{
+        display: none;
+        grid-area: menu-mobile;
+        @media (max-width: 1000px){
+          display: flex;
+          justify-content: flex-end;
+          cursor: pointer;
+        }
+        .menu-mobile-img{
+          width: 25%;
+        }
+      }
+    }
+  }
+}

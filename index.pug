@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", href="styles/index.css")
+    title Document
+  body
+    .bg_black
+      .car_bg
+        include parts/header.pug
+        main.main
+          include parts/autoUSA.pug
+          .btn-right
+            include assets/svg/autoUSA/btn_car_right.svg
+      .ellipse-white
+      .ellipse-red
+      .salon_bg
+        include parts/find.pug
+      include parts/services.pug
+      .ellipse-red2
+      .ellipse-red3
+      include parts/carousel.pug
+      
+    
+      

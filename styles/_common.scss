@@ -1,0 +1,131 @@
+@import 'reset';
+
+//COLORS
+
+$c1: #fff;
+$c2: #c7c7c7;
+$c3: #DA1245;
+$c4: #FB060E;
+$c5: #F2F1F1;
+$c6: #000000;
+
+//classes for color and background
+
+@each $number, 
+  $hex 
+    in (
+      1: $c1,
+      2: $c2,
+      3: $c3,
+      4: $c4,
+      5: $c5,
+      6: $c6
+      ) {
+  .c#{$number} {
+    color: $hex;
+  }
+  .bg#{$number} {
+    background-color: $hex;
+  }
+}
+
+// FONTS FONTS
+// FONTS FONTS
+// FONTS FONTS
+
+//FONT MIXIN
+
+//FONT MIXIN
+
+/*
+font height -x
+font-weight -y
+line-height (optional) -z
+@include font(x,y,z);
+*/
+
+@mixin font1($fs, $lh: $fs, $fw: 400) {
+  font-size: #{$fs}px;
+  line-height: #{$lh}px;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: $fw;
+}
+
+@mixin font2($fs, $lh: $fs, $fw: 400) {
+  font-size: #{$fs}px;
+  line-height: #{$lh}px;
+  font-family: "Play", sans-serif;
+  font-weight: $fw;
+}
+
+.paragraph {
+  @include font1(18, 22);
+  letter-spacing: 0.74px;
+  &-min {
+    @include font1(16, 19);
+    letter-spacing: 0.64px;
+  }
+  &-big{
+    @include font1(24,44);
+  }
+}
+
+.introduction{
+  @include font1(21, 25);
+  letter-spacing: 0.84px;
+}
+
+.h2-play{
+  @include font2(48,56);
+}
+
+.h1-play{
+  @include font2(90,104,700);
+}
+
+.h4-play{
+  @include font2(32,42);
+}
+
+.h4-roboto{
+  @include font1(40,48);
+}
+
+.h3-roboto{
+  @include font1(40,54,700);
+}
+
+
+.bold{
+  font-weight: 700;
+}
+
+.caps{
+  text-transform: uppercase;
+}
+
+.container{
+  max-width: 1920px;
+  padding: 0 140px;
+  margin: 0 auto;
+  box-sizing: content-box;
+}
+
+.group{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  .indicator{
+    width: 8px;
+    height: 8px;
+    background-color: $c6;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 50px;
+  }
+  .active{
+    cursor: pointer;
+    margin-right: 50px;
+  }
+}
